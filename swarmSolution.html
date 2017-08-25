@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <textarea id="text1" name="text1">TEXT TEXT TEXT 写 写 写 TEXT TEXT TEXT 写 写 写 TEXT TEXT TEXT 写 写 写</textarea>
+    <button onclick="sendData()">POST to SWARM and GET SWARM HASH and WAIT 30 SECONDS</button>
+    <script>
+      function sendData() {
+      var XHR = new XMLHttpRequest();
+      var data = document.getElementById('text1').value;
+
+      XHR.addEventListener('load', function(event) {
+      document.location = 'http://swarm-gateways.net/bzzr:/' + event.srcElement.responseText;      
+      });
+
+      XHR.open('POST', 'http://swarm-gateways.net/bzzr:/');
+      XHR.send(data);
+      }
+    </script>
+  </body>
+</html>
